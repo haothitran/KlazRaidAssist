@@ -1,6 +1,6 @@
 # KlazRaidAssist
 
-A World of Warcraft add-on that allows you to hold a key bind to show a frame containing raid tools at mouse cursor. Have easy access to target and world markers, ready check prompts, and pull timers.
+A World of Warcraft add-on that allows you to hold a key bind to show a frame containing raid tools at mouse cursor. Have easy access to target and world markers, prompt party/raid ready checks, and pull timers (either 5 seconds or 10 seconds).
 
 There are no in-game options. Set key binding in the in-game key bindings menu.
 
@@ -15,7 +15,7 @@ There are no in-game options. Set key binding in the in-game key bindings menu.
   - Remove same marker back to your mouse cursor by right clicking same icon again.
   - Remove marker from mouse cursor by right clicking on the world.
   - Remove all world markers by right clicking circle-backslash icon.
-- Ready check prompt when in group.
+- Ready check prompt when in a party or raid group.
 - Pull timers:
   - Left click a number to start pull timer for corresponding value.
   - Right click a number to cancel current pull timer.

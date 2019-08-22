@@ -1,18 +1,26 @@
 --------------------------------------------------------------------------------
--- // MARKERS
+-- // RAID ASSIST
 --------------------------------------------------------------------------------
 
 BINDING_HEADER_KLAZRAIDASSIST = 'KlazRaidAssist'
 _G['BINDING_NAME_CLICK KlazRaidAssist:LeftButton'] = 'Show raid tools (Hold)'
 
 local f = CreateFrame('Frame', nil, UIParent)
-f:SetPoint('CENTER')
 f:SetSize(140, 100)
+f:SetScale(1)
+f:EnableMouse(true)
+f:SetMovable(true)
+f:SetClampedToScreen(true)
 f:Hide()
 
 local anchor = f:CreateTexture(nil, 'ARTWORK')
 anchor:SetAllPoints(f)
 anchor:SetTexture('Interface\\DialogFrame\\UI-DialogBox-Background')
+
+-- layout
+-- skull  triangle star    | ready check
+-- cross  circle   diamond | pull 10
+-- square moon     clear   | puul 5
 
 --------------------------------------------------------------------------------
 -- // SKULL
@@ -31,7 +39,7 @@ skull:SetScript('OnLeave', function(self) self:SetAlpha(.5) end)
 
 skull:RegisterForClicks('AnyUp')
 skull:SetAttribute('type', 'macro')
-skull:SetAttribute('macrotext', '/run if SecureCmdOptionParse("[btn:1]") then SetRaidTargetIcon("target", 8) end\n/wm [btn:2] 8\n/cwm [btn:2] 8')
+skull:SetAttribute('macrotext', '/run PlaySound(SOUNDKIT.U_CHAT_SCROLL_BUTTON) if SecureCmdOptionParse("[btn:1]") then SetRaidTargetIcon("target", 8) end\n/wm [btn:2] 8\n/cwm [btn:2] 8')
 
 --------------------------------------------------------------------------------
 -- // CROSS
@@ -50,7 +58,7 @@ cross:SetScript('OnLeave', function(self) self:SetAlpha(.5) end)
 
 cross:RegisterForClicks('AnyUp')
 cross:SetAttribute('type', 'macro')
-cross:SetAttribute('macrotext', '/run if SecureCmdOptionParse("[btn:1]") then SetRaidTargetIcon("target", 7) end\n/wm [btn:2] 4\n/cwm [btn:2] 4')
+cross:SetAttribute('macrotext', '/run PlaySound(SOUNDKIT.U_CHAT_SCROLL_BUTTON) if SecureCmdOptionParse("[btn:1]") then SetRaidTargetIcon("target", 7) end\n/wm [btn:2] 4\n/cwm [btn:2] 4')
 
 --------------------------------------------------------------------------------
 -- // SQUARE
@@ -69,7 +77,7 @@ square:SetScript('OnLeave', function(self) self:SetAlpha(.5) end)
 
 square:RegisterForClicks('AnyUp')
 square:SetAttribute('type', 'macro')
-square:SetAttribute('macrotext', '/run if SecureCmdOptionParse("[btn:1]") then SetRaidTargetIcon("target", 6) end\n/wm [btn:2] 1\n/cwm [btn:2] 1')
+square:SetAttribute('macrotext', '/run PlaySound(SOUNDKIT.U_CHAT_SCROLL_BUTTON) if SecureCmdOptionParse("[btn:1]") then SetRaidTargetIcon("target", 6) end\n/wm [btn:2] 1\n/cwm [btn:2] 1')
 
 --------------------------------------------------------------------------------
 -- // TRIANGLE
@@ -88,7 +96,7 @@ triangle:SetScript('OnLeave', function(self) self:SetAlpha(.5) end)
 
 triangle:RegisterForClicks('AnyUp')
 triangle:SetAttribute('type', 'macro')
-triangle:SetAttribute('macrotext', '/run if SecureCmdOptionParse("[btn:1]") then SetRaidTargetIcon("target", 4) end\n/wm [btn:2] 2\n/cwm [btn:2] 2')
+triangle:SetAttribute('macrotext', '/run PlaySound(SOUNDKIT.U_CHAT_SCROLL_BUTTON) if SecureCmdOptionParse("[btn:1]") then SetRaidTargetIcon("target", 4) end\n/wm [btn:2] 2\n/cwm [btn:2] 2')
 
 --------------------------------------------------------------------------------
 -- // CIRCLE
@@ -107,7 +115,7 @@ circle:SetScript('OnLeave', function(self) self:SetAlpha(.5) end)
 
 circle:RegisterForClicks('AnyUp')
 circle:SetAttribute('type', 'macro')
-circle:SetAttribute('macrotext', '/run if SecureCmdOptionParse("[btn:1]") then SetRaidTargetIcon("target", 2) end\n/wm [btn:2] 6\n/cwm [btn:2] 6')
+circle:SetAttribute('macrotext', '/run PlaySound(SOUNDKIT.U_CHAT_SCROLL_BUTTON) if SecureCmdOptionParse("[btn:1]") then SetRaidTargetIcon("target", 2) end\n/wm [btn:2] 6\n/cwm [btn:2] 6')
 
 --------------------------------------------------------------------------------
 -- // MOON
@@ -126,8 +134,7 @@ moon:SetScript('OnLeave', function(self) self:SetAlpha(.5) end)
 
 moon:RegisterForClicks('AnyUp')
 moon:SetAttribute('type', 'macro')
-moon:SetAttribute('macrotext', '/run if SecureCmdOptionParse("[btn:1]") then SetRaidTargetIcon("target", 5) end\n/wm [btn:2] 7\n/cwm [mod:shift][btn:2] 7')
-
+moon:SetAttribute('macrotext', '/run PlaySound(SOUNDKIT.U_CHAT_SCROLL_BUTTON) if SecureCmdOptionParse("[btn:1]") then SetRaidTargetIcon("target", 5) end\n/wm [btn:2] 7\n/cwm [mod:shift][btn:2] 7')
 
 --------------------------------------------------------------------------------
 -- // STAR
@@ -146,7 +153,7 @@ star:SetScript('OnLeave', function(self) self:SetAlpha(.5) end)
 
 star:RegisterForClicks('AnyUp')
 star:SetAttribute('type', 'macro')
-star:SetAttribute('macrotext', '/run if SecureCmdOptionParse("[btn:1]") then SetRaidTargetIcon("target", 1) end\n/wm [btn:2] 5\n/cwm [btn:2] 5')
+star:SetAttribute('macrotext', '/run PlaySound(SOUNDKIT.U_CHAT_SCROLL_BUTTON) if SecureCmdOptionParse("[btn:1]") then SetRaidTargetIcon("target", 1) end\n/wm [btn:2] 5\n/cwm [btn:2] 5')
 
 --------------------------------------------------------------------------------
 -- // DIAMOND
@@ -165,7 +172,7 @@ diamond:SetScript('OnLeave', function(self) self:SetAlpha(.5) end)
 
 diamond:RegisterForClicks('AnyUp')
 diamond:SetAttribute('type', 'macro')
-diamond:SetAttribute('macrotext', '/run if SecureCmdOptionParse("[btn:1]") then SetRaidTargetIcon("target", 3) end\n/wm [btn:2] 3\n/cwm [btn:2] 3')
+diamond:SetAttribute('macrotext', '/run PlaySound(SOUNDKIT.U_CHAT_SCROLL_BUTTON) if SecureCmdOptionParse("[btn:1]") then SetRaidTargetIcon("target", 3) end\n/wm [btn:2] 3\n/cwm [btn:2] 3')
 
 --------------------------------------------------------------------------------
 -- // CLEAR
@@ -267,15 +274,16 @@ pull5:SetAttribute('macrotext', '/run local c="/pull [btn:3][btn:2] 0; [btn:1] 5
 --------------------------------------------------------------------------------
 
 local toggle = CreateFrame('Button', 'KlazRaidAssist', UIParent, 'SecureHandlerClickTemplate')
+toggle:RegisterEvent("PLAYER_TARGET_CHANGED")
 toggle:RegisterForClicks('AnyUp', 'AnyDown')
-toggle:SetFrameRef('parent', f)
+toggle:SetFrameRef('ParentFrame', f)
 toggle:SetAttribute('_OnClick',[[
-	parent = self:GetFrameRef('parent')
+	ParentFrame = self:GetFrameRef('ParentFrame')
 
 	if down then
-    parent:SetPoint('TOPLEFT', '$cursor', -18, 18)
-		parent:Show()
+    ParentFrame:SetPoint('TOPLEFT', '$cursor', -18, 18)
+		ParentFrame:Show()
 	else
-		parent:Hide()
+		ParentFrame:Hide()
 	end
 ]])
