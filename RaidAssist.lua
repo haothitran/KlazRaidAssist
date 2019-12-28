@@ -193,7 +193,7 @@ clear:RegisterForClicks('AnyUp')
 clear:SetAttribute('type', 'macro')
 
 if SecureCmdOptionParse("[btn:1]") then
-	clear:SetAttribute('macrotext', '/run for i = 1, 9 do SetRaidTarget("player", i) end\n/cwm [btn:2] all')
+  clear:SetAttribute('macrotext', '/run for i = 1, 9 do SetRaidTarget("player", i) end\n/cwm [btn:2] all')
 end
 
 --------------------------------------------------------------------------------
@@ -278,12 +278,12 @@ toggle:RegisterEvent("PLAYER_TARGET_CHANGED")
 toggle:RegisterForClicks('AnyUp', 'AnyDown')
 toggle:SetFrameRef('ParentFrame', f)
 toggle:SetAttribute('_OnClick',[[
-	ParentFrame = self:GetFrameRef('ParentFrame')
+  ParentFrame = self:GetFrameRef('ParentFrame')
 
-	if down then
+  if down then
     ParentFrame:SetPoint('TOPLEFT', '$cursor', -18, 18)
-		ParentFrame:Show()
-	else
-		ParentFrame:Hide()
-	end
+    ParentFrame:Show()
+  else
+    ParentFrame:Hide()
+  end
 ]])
