@@ -1,4 +1,4 @@
-## Interface: 90001
+## Interface: 90002
 ## Title: Klaz|cff1994ffRaidAssist|r
 ## Author: Klaz
 ## Notes: Hold a key bind to show raid tools at mouse cursor (e.g. markers, ready check, pull timers).
