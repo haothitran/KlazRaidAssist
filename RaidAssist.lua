@@ -6,7 +6,7 @@ BINDING_HEADER_KLAZRAIDASSIST = 'KlazRaidAssist'
 _G['BINDING_NAME_CLICK KlazRaidAssist:LeftButton'] = 'Show raid tools (Hold)'
 
 local f = CreateFrame('Frame', nil, UIParent)
-f:SetSize(140, 100)
+f:SetSize(130, 100)
 f:SetScale(1)
 f:EnableMouse(true)
 f:SetMovable(true)
@@ -18,7 +18,7 @@ anchor:SetAllPoints(f)
 anchor:SetTexture('Interface\\DialogFrame\\UI-DialogBox-Background')
 
 -- layout
--- skull  triangle star    | ready check
+-- skull  triangle star    | ready check | pull cancel
 -- cross  circle   diamond | pull 10
 -- square moon     clear   | puul 5
 
@@ -205,8 +205,8 @@ divide:SetAllPoints(f)
 
 local line = divide:CreateTexture(nil, 'BACKGROUND')
 line:SetColorTexture(.098, .58, 1, 1)
-line:SetPoint('TOPRIGHT', divide, 'TOPRIGHT', -34, 0)
-line:SetPoint('BOTTOMRIGHT', divide, 'BOTTOMRIGHT', -34, 0)
+line:SetPoint('TOPRIGHT', divide, 'TOPRIGHT', -28, 0)
+line:SetPoint('BOTTOMRIGHT', divide, 'BOTTOMRIGHT', -28, 0)
 
 --------------------------------------------------------------------------------
 -- // READY CHECK
@@ -215,7 +215,7 @@ line:SetPoint('BOTTOMRIGHT', divide, 'BOTTOMRIGHT', -34, 0)
 local readycheck = CreateFrame('BUTTON', 'Readycheck', f, 'SecureActionButtonTemplate')
 readycheck:SetNormalTexture('Interface\\RaidFrame\\ReadyCheck-Ready')
 readycheck:SetPoint('TOPRIGHT')
-readycheck:SetSize(32, 32)
+readycheck:SetSize(25, 25)
 readycheck:SetAlpha(.5)
 
 readycheck:SetScript('OnEnter', function(self) self:SetAlpha(1) end)
@@ -226,12 +226,29 @@ readycheck:SetAttribute('type', 'macro')
 readycheck:SetAttribute('macrotext', '/readycheck')
 
 --------------------------------------------------------------------------------
+-- // PULL CANCEL
+--------------------------------------------------------------------------------
+
+local pullcancel = CreateFrame('BUTTON', 'PullCancel', f, 'SecureActionButtonTemplate')
+pullcancel:SetNormalTexture('Interface\\RaidFrame\\ReadyCheck-NotReady')
+pullcancel:SetPoint('TOPRIGHT', 0, -25)
+pullcancel:SetSize(25, 25)
+pullcancel:SetAlpha(.5)
+
+pullcancel:SetScript('OnEnter', function(self) self:SetAlpha(1) end)
+pullcancel:SetScript('OnLeave', function(self) self:SetAlpha(.5) end)
+
+pullcancel:RegisterForClicks('AnyUp')
+pullcancel:SetAttribute('type', 'macro')
+pullcancel:SetAttribute('macrotext', '/pull 0')
+
+--------------------------------------------------------------------------------
 -- // PULL 10
 --------------------------------------------------------------------------------
 
 local pull10 = CreateFrame('BUTTON', 'Pull10', f, 'SecureActionButtonTemplate')
-pull10:SetPoint('RIGHT')
-pull10:SetSize(32, 32)
+pull10:SetPoint('BOTTOMRIGHT', 0, 25)
+pull10:SetSize(25, 25)
 pull10:SetAlpha(.5)
 
 local pull10text = pull10:CreateFontString(nil, "OVERLAY")
@@ -253,7 +270,7 @@ pull10:SetAttribute('macrotext', '/run local c="/pull [btn:3][btn:2] 0; [btn:1] 
 
 local pull5 = CreateFrame('BUTTON', 'Pull5', f, 'SecureActionButtonTemplate')
 pull5:SetPoint('BOTTOMRIGHT')
-pull5:SetSize(32, 32)
+pull5:SetSize(25, 25)
 pull5:SetAlpha(.5)
 
 local pull5text = pull5:CreateFontString(nil, "OVERLAY")
